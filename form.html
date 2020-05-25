@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <title>jQuery備忘録</title>
+</head>
+<body id="form">
+  <div class="flame-wrapper">
+  <header>
+    <h1>jQuery備忘録</h1>
+    <p>自分用の備忘録とまとめ</p>
+      <ul class="header-nav">
+        <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター編</a>
+          <ul id="serectorIndex" class="indexSub">
+            <li><a href="index.html#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
+            <li><a href="index.html#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
+            <li><a href="index.html#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
+          </ul>
+        </li>
+        <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド編</a>
+          <ul id="orderIndex" class="indexSub">
+            <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
+            <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
+            <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
+            <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
+            <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
+            <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
+            <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
+          </ul>
+        </li>
+        <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント編</a>
+          <ul id="eventIndex" class="indexSub">
+            <li><a href="event.html#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
+            <li><a href="event.html#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
+            <li><a href="event.html#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
+            <li><a href="event.html#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
+            <li><a href="event.html#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
+            <li><a href="event.html#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
+            <li><a href="event.html#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
+            <li><a href="event.html#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
+            <li><a href="event.html#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
+          </ul>
+        </li>
+        <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション編</a>
+          <ul id="animationIndex" class="indexSub">
+            <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
+            <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
+            <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
+            <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
+          </ul>
+        </li>
+        <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム編</a>
+          <ul id="formIndex" class="indexSub">
+            <li><a href="#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
+            <li><a href="#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
+            <li><a href="#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
+          </ul>
+        </li>
+      </ul>
+  </header>
+
+  <main>
+    <h1>フォーム編</h1>
+    <div class="inner">
+      <section class="formIntro">
+        <dl>
+          <dt>フォームとは</dt>
+          <dd>jQueryのフォーム機能では入力内容に応じてデザインを変更したり、エラーメッセージなどを出したりすることができる。</dd>
+          <dd></dd>
+        </dl>
+      </section>  
+
+      <section id="getForm">
+        <h2>フォーム部品の値の取得・変更</h2>
+        <dl>
+          <dt>value属性の値の取得</dt>
+          <dd>text( )やattr( )のように( )内を空欄にして.val( )で取得する。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.val</div>( );</dd>
+          <div class="valueGet">
+            <dd>お名前を記入してください <input type="text" id="idget"><button id="confirm">確認</button></dd>
+            <dd>お名前 : <span id="name"></span></dd>
+          </div>
+          <dd class="figure"> $('#btn').click(function( ){<br>
+            <span class="explain">確認ボタンを押すと</span><br>
+          &emsp;$("input").val( ); <br>
+          <span class="explain">inputフォームに記入された内容が</span><br>
+          &emsp;&emsp;$('#name').text($("input").val( ));<br>
+          <span class="explain">お名前の欄に出力される</span><br>
+          });</dd>
+        </dl>
+
+        <dl>
+          <dt>value属性の値の変更</dt>
+          <div class="valueGet">
+            <dd>お名前を記入してください <input type="text" id="idget2"><button id="confirm2">確認</button></dd>
+            <dd>お名前 : <span id="name2"></span><br>
+              <button id="idclear">クリア</button></dd>
+          </div>
+          <dd>inputフォームに記入された内容がお名前のところに出力されるのは上と同じ。</dd>
+          <dd class="figure">$('#clearBtn').click(function( ){<br>
+            <span class="explain">クリアボタンを押すと</span><br>
+          &emsp;$('#name').text(' ');<br>
+          <span class="explain">お名前の欄に’ ’(空白)を書く</span><br>
+          }); </dd>
+          <dd>名前を入力した後、クリアボタンを押すことで空欄(' ')に書き換えている。</dd>
+          <div class="valueGet">
+            <dd>パスワード</dd>
+            <dd><input type="password"  id="password"></dd>
+            <dd>パスワード(確認) <span id="error-message0"></span></dd>
+            <dd><input type="password"  id="password2"></dd>
+            <dd><input type="submit" value="確認" id="confim3" class="confirmBtn"><input type="submit" value="クリア" id="clear2" class="confirmBtn"></dd>
+          </div>
+          <dd>こういうよくあるタイプのものもできる。</dd>
+          <dd class="figure">$('#btn').click(function( ){<br>
+            <span class="explain">確認ボタンを押して</span><br>
+          &emsp;if($('#password').val( )!=$('#password2').val( )){<br>
+          <span class="explain">パスワードと確認用のパスワードが異なると</span><br>
+          &emsp;$('#error-message').text('パスワードが違います');<br>
+          <span class="explain">エラーメッセージの欄に「パスワードが違います」と表示</span><br>
+          &emsp;}else{<br>
+          <span class="explain">そうでなければ</span><br>
+          &emsp;$('#error-message0').text(' ');<br>
+          <span class="explain">’ ’(エラーメッセージを出さない)</span><br>
+          &emsp;}<br>
+          }); </dd>
+          <dd>val( )はinput要素だけでなくselect/option要素、textarea要素にも使える。</dd>
+        </dl>
+       </section>
+
+       <section id="eventForm">
+       <h2>フォームに関するイベント</h2>
+        <dl>
+        <dt>focus( )</dt>
+        <dd>input要素などフォーム部品が選択されると設定された処理を行う。</dd>
+        <dd class="figure">$('セレクター')<div class="important">.focus</div>(function( ){<br>
+          &emsp;フォーカスされた時に実行する処理<br>
+          });</dd>
+        </dl>
+
+        <dl>
+          <dt>blur( )</dt>  
+          <dd>フォーカスが外れた時に設定された処理を行う。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.blur</div>(function( ){<br>
+          &emsp;外された時に実行する処理<br>
+          });</dd>
+          <dd>フォームにカーソルが移ると背景色が変わり、カーソルが外れると背景色が戻る。</dd>
+          <dd><input type="text" id="focus"></dd>
+          <dd class="figure">$('input').focus(function(){<br>
+          <span class="explain">inputにカーソルが移ると</span><br>
+          &emsp;$(this).css('backgroundColor','pink');<br>
+          <span class="explain">背景色が変わりピンクに変わり</span><br>
+          });<br>
+          $('input').blur(function(){<br>
+          <span class="explain">カーソルが外れると</span><br>
+          &emsp;$(this).css('backgroundColor','white');<br>
+          <span class="explain">背景色が白になる(戻る)</span><br>
+          });</dd>
+          <dd>実用的なものはこういったの</dd>
+          <div class="valueGet">
+            <dd>お名前 : <input type="text" id="focusBlur"></dd>
+          </div>
+          <dd class="figure">$('input').val('入力してください').css('color','#ccc');<br>
+          <span class="explain">inputの中身を文字色が#cccで「入力してください」にする</span><br>
+          $('input').focus(function(){<br>
+          <span class="explain">inputにfocusした時に</span><br>
+          &emsp;if($(this).val( )==('入力してください')){<br>
+          <span class="explain">inputの中身が「入力してください」なら</span><br>
+          &emsp;&emsp;$(this).val(' ').css('color','#333');<br>
+          <span class="explain">中身を空欄にして文字色を#333に変える</span><br>
+          &emsp; } <br>
+          &emsp;}).blur(function( ){<br>
+          <span class="explain">inputからblurした時に</span><br>
+          &emsp;if($(this).val( )==' '){<br>
+          <span class="explain">中身が空欄なら</span><br>
+          &emsp;&emsp;$(this).val('入力してください').css('color','#ccc');<br>
+          <span class="explain">中身を文字色が#cccで「入力してください」にする</span><br>
+          &emsp; } <br>
+          });  </dd>
+          <dd>でも今はHTMLでinputのプロパティでplaceholder=" "で作る方が簡単。</dd>
+          <div class="valueGet">
+            <dd>お名前 : <input type="text" placeholder="placeholderでつくったもの"></dd>
+          </div>
+          <dd class="figure">&lt;input type="text" placeholder="placeholderでつくったもの"></dd>
+        </dl>
+
+        <dl>
+          <dt>change( )</dt>
+          <dd>フォームの内容が変更されると処理を行う。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.change</div>(function( ){<br>
+          &emsp;要素の内容が変更された時に実行する処理<br>
+          });</dd>
+          <dd>セレクトボックスを選択するとアラートが出る。</dd>
+          <div class="valueGet">
+            <select name="" id="select">
+              <option value="">選択してください</option>
+              <option value="">select1</option>
+              <option value="">select2</option>
+              <option value="">select3</option>
+            </select>
+          </div>
+          <dd class="figure">$('#select').change(function(){<br>
+          <span class="explain">選択肢を変えると</span><br>
+          &emsp;alert('選択されました!');<br>
+          <span class="explain">アラートが出る</span><br>
+          });</dd>
+          <dd>選んだ動物のvalue属性を取得する</dd>
+          <div class="valueGet">
+          好きな動物を選んでください
+           <select name="" id="doc">
+              <option value="">選んでください</option>
+              <option value="ありがとうだワン">犬</option>
+              <option value="ありがとうニャー">猫</option>
+              <option value="ありがとうだぴょん">ウサギ</option>
+            </select>
+            <span class="docText"></span>
+          </div>
+          <dd class="figure">$('select').change(function( ){<br>
+          <span class="explain">選択肢を変えると</span><br>
+          &emsp;$('span').text($(this).val( ));<br>
+          <span class="explain">選ばれた選択肢のvalue属性をspanに書き出す</span><br>
+          });
+        </dl>
+
+        <dl>
+          <dt>submit( )</dt>
+          <dd>送信ボタンがform要素で包まれているフォームの送信時に設定された処理を行う。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.submit</div>(function( ){<br>
+          &emsp;要素の内容が変更された時に実行する処理<br>
+          });</dd>
+            <div class="valueGet">
+              <form id="form1">
+                <input type="text">
+                <dd><input type="submit" value="送信" class="submit-btn confirmBtn"></dd>  
+                </form>
+            </div>
+          <dd class="figure">$('form').submit(function(){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;confirm('送信しますか？');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          });</dd>
+          <dd>設定したイベントが送信されるとページの表示位置がリセットされてページの先頭に戻ってしまう。submitイベントの中でreturn falseを使うとで送信をキャンセルできる。</dd>
+            <div class="valueGet">
+              <form id="form2">
+                <input type="text">
+                <dd><input type="submit" value="送信" class="submit-btn confirmBtn"></dd>  
+                </form>
+            </div>
+          <dd class="figure">$('form').submit(function(){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;confirm('送信しますか？');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;return false;<br>
+          <span class="explain">return false;を返す</span><br>
+          });</dd>
+          <dt>submit( )の応用</dt>
+          <div class="valueGet">
+            <form id="form3">
+              <dd>
+              <div id="error-message"></div>
+              <dd>お名前：<input type="text" id="name3"></dd> 
+              <dd>ご意見：<textarea id="opinion" ></textarea></dd> 
+              <dd><input type="submit" value="送信" class="submit-btn confirmBtn"></dd>
+              </dd>
+            </form>
+          </div>
+          <dd class="figure">$('#form2').submit(function( ){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;if($('input').val( ) == ' '&&($('textarea').val( ) == ' ')){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp; &emsp; $('#error-message').text('何でもいいから書いてね！！');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;}else if($('#name').val( ) == ' '){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp; &emsp;$('#error-message').text('名前を書いてね！');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;}else if($('textarea').val( ) == ' '){<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp; &emsp;$('#error-message').text('ご意見を書いてね！');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;}else{<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp; &emsp;$('#error-message').text('ご協力ありがとうございます！');<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          &emsp;}<br>
+          &emsp;return false;<br>
+          <span class="explain">表示ボタンを押すと</span><br>
+          });</dd>
+        </dl> 
+      </section>
+
+      <section id="selectForm">
+        <h2>フォーム部品を選択するセレクター</h2>
+        <dl>
+          <dt>:checked</dt>
+          <dd>:checkedはラジオボックスやチェックボックスにチェックが入っている要素だけを選択できる。</dd>
+          <div class="checkboxClass valueGet">
+            <input type="checkbox" class="checkbox">a
+            <input type="checkbox" class="checkbox">b
+            <input type="checkbox" class="checkbox">c
+          </div>
+          <dd class="figure"> $('input[type="checkbox"]').change(function( ){<br>
+            <span class="explain">チェックボックスがチェックされると</span><br>
+            &emsp;$(':checked');alert('チェックされました') <br>
+            <span class="explain">「チェックされました」とアラートが出る</span><br>
+            });</dd>
+            <dd>チェックを入れるとアラートが出る</dd>
+          <div class="checkboxClass valueGet">
+            <input type="checkbox" class="checkbox2">a
+            <input type="checkbox" class="checkbox2">b
+            <input type="checkbox" class="checkbox2">c
+          </div>
+          <dd class="figure">$('input[class="check2"]').change(function(){<br>
+            <span class="explain">チェックボックス2がチェックされた時に</span><br>
+            &emsp;if($(this).prop('checked')){<br>
+            <span class="explain">checkedの状態だと</span><br>
+            &emsp;&emsp;alert('チェックが入りました');<br>
+            <span class="explain">「チェックが入りました」とアラートが出る</span><br>
+            &emsp;}else{<br>
+            <span class="explain">それ以外だと</span><br>
+            &emsp;&emsp;alert('チェックが外れました');<br>
+            <span class="explain">「チェックが外れました」とアラートが出る</span><br>
+            &emsp;};<br>
+            });</dd>
+            <dd>チェックの有無をpropで判断してif文で条件分岐をしている</dd>
+            <dd><span class="important">※prop…チェックボックスやラジオボックスでよく使われプロパティの状態を取得する。</span></dd>
+            <div class="checkboxClass valueGet">
+              好きな麺類(複数選択可) :
+              <input type="checkbox" value="ラーメン" name="noodle">ラーメン
+              <input type="checkbox" value="そば" name="noodle">そば
+              <input type="checkbox" value="うどん" name="noodle">うどん
+              <input type="checkbox" value="きしめん" name="noodle">きしめん
+              <input type="checkbox" value="パスタ" name="noodle">パスタ
+             <p class="favoritnoodle"></p>
+            </div>
+
+            <dd class="figure">$('input').change(function( ){<br>
+              <span class="explain">inputにチェックを入れると</span><br>
+              &emsp;var likenoodle = [ ];<br>
+              <span class="explain">空の配列を作る</span><br>
+              &emsp;&emsp;$('input:checked').each(function( ){<br>
+              <span class="explain">チェックされたinputをそれぞれ</span><br>
+              &emsp; likenoodle.push($(this).val( ));<br>
+              <span class="explain">クリックしたもののvalue属性を取得して変数likenoodleに追加して</span><br>
+              &emsp;&emsp; $('.favoritnoodle').text(likenoodle)<br>
+              <span class="explain">記述用のクラスのところに表示させる</span><br>
+                &emsp;});<br>
+              });</dd>
+              <dd><span class="important">※each…セレクターで指定した要素に繰り返し処理をする命令。</span></dd>
+              <dd class="figure">$('セレクター')<div class="important">.each</div>(function( ){<br>
+                <span class="explain">繰り返し処理</span><br>
+              });</dd>
+            <dd>ラジオボックスも同じ様な感じ</dd>
+            <div class="checkboxClass valueGet">
+              血液型 :
+              <input type="radio" value="A型" name="bloodType">A型
+              <input type="radio" value="B型" name="bloodType">B型
+              <input type="radio" value="O型" name="bloodType">O型
+              <input type="radio" value="AB型" name="bloodType">AB型
+             <p class="bloodType"></p>
+            </div>
+            <dd>選択されたものが表示される。</dd>
+            <dd class="figure">$('input[name="bloodType"]').change(function( ){<br>
+              <span class="explain">選択肢がチェックされると</span><br>
+              &emsp;var bloodType =$('input[name="bloodType"]:checked').val( );<br>
+              <span class="explain">チェックされたもののval属性を変数に入れて</span><br>
+              &emsp;$('.bloodType').text(`血液型は${bloodType}ですね`)<br>
+              <span class="explain">選んだものが出力される</span><br>
+            }); </dd>
+        </dl>
+
+        
+        
+        <dl class="selectbox">
+          <dt>:selected</dt>
+          <dd>:selecedはセレクトボックスで選択された要素だけを選択できる</dd>
+            <div class="valueGet">
+              通勤方法
+              <select class="selecter">
+                <option value="選択してください">選択してください</option>
+                <option value="徒歩・自転車">徒歩・自転車</option>
+                <option value="電車">電車</option>
+                <option value="バス">バス</option>
+                <option value="船舶">船舶</option>
+              </select><br>
+              徒歩・自転車以外の方は最寄駅を記入してください
+              <input type="text" id="station">
+            </div>
+            <dd>徒歩・自転車を選ぶとinputに記入ができなくなる。</dd>
+          <dd class="figure">$('.selecter').change(function( ){<br>
+            <span class="explain">セレクターが変わった時に</span><br>
+            &emsp;if($(':selected').val( ) == "徒歩・自転車"){<br>
+              <span class="explain">選択されているもののvalueが徒歩・自転車であれば</span><br>
+            &emsp;&emsp;$('input').prop("disabled",true);<br>
+            <span class="explain">inputのプロパティのdiableを設定(true)にする</span><br>
+            &emsp;}else{<br>
+              <span class="explain">そうでなければ</span><br>
+            &emsp; $('input').prop("disabled",false){<br>
+              <span class="explain">inputのプロパティのdiableを解除(false)にする</span><br>
+            &emsp;}<br>
+            });
+          </dd>  
+          <dt>disable</dt>
+          <dd class="figure">$('input').prop('disabled',true){<br>
+            <span class="explain">inputのプロパティを使用できなくなる</span></dd><br>
+          <dd class="figure">$('input').prop('disabled',false)<br>
+            <span class="explain">inputのプロパティを使用できなくなる</span></dd>
+            <div class="valueGet">
+              同意しますか？
+              <input type="checkbox" id='check'><br>
+              <input type="text" Id="text" disabled>
+              <span class="error-message2"></span>
+            </div>
+            <dd>最初はdisabledになっているので「同意しますか」にチェックを入れないとテキストボックスに記入できない。</dd>
+            <dd class="figure">$('#check').change(function( ){<br>
+              <span class="explain">チェックボックスがチェックされた時に</span><br>
+              &emsp;if($('#text').prop('disabled')){<br>
+                <span class="explain">inputのprop( )がdisabledなら</span><br>
+                &emsp;&emsp;$('#text').prop('disabled',false);<br>
+                <span class="explain">inputのプロパティのdiableを解除(false)にする</span><br>
+              &emsp;&emsp;$('#text').focus();<br>
+                <span class="explain">inputにfocusして</span><br>
+              &emsp;&emsp;$('.error-message2').text('');<br>
+                <span class="explain">エラーメッセージを空欄にする</span><br>
+              &emsp; }else{<br>
+                <span class="explain">そうでなければ(チェックを外したら)</span><br>
+              &emsp;&emsp;$('#text').prop('disabled',true);<br>
+              <span class="explain">inputのプロパティのdiableを設定(true)にする</span><br>
+              &emsp;&emsp;$('span').text('チェックしてください').css('color','red');<br>
+                <span class="explain">エラーメッセージを表示</span><br>
+              &emsp;}<br>
+              });</dd>
+        </dl>
+      </section>
+    </div>
+</main>
+
+  <footer>
+    <a href="#top" id="top">topへ</a>
+    <div class="footer-wrapper">
+      <a href=""><i class="fab fa-twitter-square footer-icon"></i></a>
+      <a href=""><i class="fab fa-facebook-square footer-icon"></i></a>
+      <a href=""><i class="fab fa-line footer-icon"></i></a>
+      <p>&copy kbo 2020</p>
+    </div>
+  </footer>
+  </div>
+      <script src="js/main.js"></script>
+</body>
+</html>
