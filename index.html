@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <title>jQuery備忘録</title>
+</head>
+<body>
+  <div class="flame-wrapper">
+  <header>
+    <h1>jQuery備忘録</h1>
+    <p>自分用の備忘録とまとめ</p>
+      <ul class="header-nav">
+        <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター編</a>
+          <ul id="serectorIndex" class="indexSub">
+            <li><a href="#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
+            <li><a href="#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
+            <li><a href="#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
+          </ul>
+        </li>
+        <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド編</a>
+          <ul id="orderIndex" class="indexSub">
+            <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
+            <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
+            <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
+            <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
+            <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
+            <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
+            <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
+          </ul>
+        </li>
+        <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント編</a>
+          <ul id="eventIndex" class="indexSub">
+            <li><a href="event.html#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
+            <li><a href="event.html#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
+            <li><a href="event.html#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
+            <li><a href="event.html#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
+            <li><a href="event.html#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
+            <li><a href="event.html#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
+            <li><a href="event.html#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
+            <li><a href="event.html#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
+            <li><a href="event.html#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
+          </ul>
+        </li>
+        <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション編</a>
+          <ul id="animationIndex" class="indexSub">
+            <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
+            <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
+            <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
+            <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
+          </ul>
+        </li>
+        <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム編</a>
+          <ul id="formIndex" class="indexSub">
+            <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
+            <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
+            <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
+          </ul>
+        </li>
+      </ul>
+  </header>
+
+  <main class="index-wrapper">
+    <h1>セレクター編</h1> 
+    <div class="inner">
+      <section class="selectorIntro">
+        <dl>
+          <dt>セレクターとは</dt>
+          <dd>jQueryを利用したスクリプトでは<div class="important">(1)どのHTMLの要素を操作するかを「セレクター」で指定し、(2)操作する内容を書く。</div></dd>
+          <dd>その際にHTMLの要素を指定するものをセレクターという。</dd>
+          <dd class="figure">$(function( ){<br>
+            &emsp;$('セレクター'). jQueryの命令;<br>
+          });</dd>
+        </dl>
+      </section>
+
+      <section id="cssSelector">
+        <h2>CSSセレクター</h2>
+        <dl>
+          <dt>CSSでよく利用されるセレクター</dt>
+          <dt>要素セレクター</dt>
+          <dd>$('h1やpなどの要素')</dd>
+          <dd class="figure">$('セレクター');</dd>
+          <div class="valueGet">
+            <dd id="css">&lt;h3>おはよう&lt;/h3></dd>
+            <button id="cssBtn">変更</button>
+          </div>
+          <dd class="figure">$('h3').css('color','red');<br>
+          <span class="explain">h3を赤色にする</span> </dd>
+          <div class="kihon">
+            <p>以下基本的に</p>
+            <ul>
+              <li id="first">&lt;list id="first"> &emsp; テキストテキストテキストテキストテキストテキストテキストテキストテキスト &lt;/li></li>
+              <li id="second">&lt;list id="second"> テキストテキストテキストテキストテキストテキストテキストテキストテキスト &lt;/li></li>
+              <li id="third">&lt;list id="third"> &emsp;テキストテキストテキストテキストテキストテキストテキストテキストテキスト &lt;/li></li>
+              <li id="fourth">&lt;list id="fourth">  &ensp;テキストテキストテキストテキストテキストテキストテキストテキストテキスト &lt;/li></li>
+            </ul>
+          </div>
+          <dt>idセレクター、クラスセレクター</dt>
+          <dd>$('.や#で指定')</dd>
+          <dd class="figure">$('.または#');</dd>
+          <div class="valueGet">
+            <ul class="id">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="idBtn">変更</button>
+          </div>
+          <dd class="figure">$('#first').css('color','red');<br>
+          <span class="explain">id=firstを赤色にする</span></dd>
+        </dl>
+
+        <dl>
+          <dt>子孫セレクター</dt>
+          <dd>スペースを開けて指定して特定の要素の内側にあるものを絞り込める。</dd>
+          <dd class="figure">$('セレクター セレクター');</dd>
+            <div class="valueGet">
+              <ul class="shison">
+                <li id="first"><strong>テキスト</strong>テキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              </ul>
+              <button id="shisonBtn">変更</button>
+            </div>
+            <dd class="figure">$('#first strong');<br>
+            <span class="explain">id=firstのstrong要素を取得する</span></dd>
+        </dl>
+
+        <dl>
+          <dt>グループセレクター</dt>
+          <dd>,(カンマ)で区切る事で複数のセレクターを指定して操作する。</dd>
+          <dd class="figure">$('セレクター,セレクター');</dd>
+          <div class="valueGet">
+            <ul class="group">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="groupBtn">変更</button>
+          </div>
+          <dd class="figure">$('#first , #third');<br><span class="explain">id=firstとthirdを取得する</span></dd>
+        </dl>
+
+        <dl>
+          <dt>子セレクター</dt>
+          <dd>指定する事でliの直下のstrongがついたもののみが変化する。</dd>
+          <dd class="figure">$('セレクター > セレクター');</dd>
+          <div class="valueGet">
+            <ul class="children">
+              <li id="first"><strong>テキスト</strong>テキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third"><div>&lt;div><strong>テキスト</strong>テキストテキストテキストテキストテキストテキストテキストテキスト&lt;/div></div></li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="childrenBtn">変更</button>
+          </div>
+          <dd class="figure">$('li > strong');<br><span class="explain">li直下のstrong要素を取得する</span></dd>
+          <dd>&lt;div>で囲われているため３番目の&lt;strong>は指定されない。</dd>
+        </dl>
+
+        <dl>
+          <dt>隣接セレクター</dt>
+          <dd>特定の要素の次の要素を選択する。</dd>
+          <dd class="figure">$('セレクター + セレクター');</dd>
+          <div class="valueGet">
+            <ul class="next">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="nextBtn">変更</button>
+          </div>
+          <dd class="figure">$('#second + li');<br><span class="explain">id=secondの次の要素を取得する</span></dd>
+          <dd>#secondの次の要素、つまり３番目のli要素が選択される。</dd>
+        </dl>
+
+        <dl>
+          <dt>first-child擬似クラス</dt>
+          <dd>最初に登場する要素を指定。親要素が複数ある場合も適応可能。<br>
+          またlast-childだと最後の要素を選択できる。 </dd>
+          <dd class="figure">$('セレクター:first-child');<br>$('セレクター:last-child');</dd>
+          <div class="valueGet">
+            <div class="first-child">
+              <ul>
+                <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              </ul><br>
+              <ul>
+                <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              </ul>
+            </div>
+            <button id="firstChildBtn">first-child</button>
+            <button id="lastChildBtn">last-child</button>
+          </div>
+          <dd class="figure">$('li:first-child').css('color','red');<br><span class="explain">li要素の最初に登場する要素を赤色にする</span><br>$('li:last-child').css('color','blue');<br>
+            <span class="explain">li要素の最後に登場する要素を青色にする</span></dd>
+        </dl>
+
+        <dl>
+          <dt>間接セレクター</dt>
+          <dd>特定のセレクターと要素を〜で結んで指定したセレクターの後の要素以降を指定する。</dd>
+          <dd class="figure">$('セレクター~');</dd>
+          <div class="valueGet">
+            <ul class="kansetu">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="kansetuBtn">変更</button>
+          </div> 
+          <dd class="figure">$('#second~li');<br><span class="explain">id=secondの次のli要素からの要素を取得する</span></dd>
+          <dd>#secondの次の要素、つまり３番目のからのli要素が選択される。</dd>
+        </dl>
+
+        <dl>
+          <dt>否定擬似クラス</dt>
+          <dd>セレクターの後ろに:notをつけて(…)に除外する条件を記述する。</dd>
+          <dd class="figure">$('セレクター:not( )');</dd>
+          <div class="valueGet">
+            <ul class="hitei">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="hiteiBtn">変更</button>
+          </div> 
+          <dd class="figure">$('li:not(:first-child)');<br><span class="explain">li要素の最初以外の要素を取得する</span></dd>
+          <dd>:not(:first-child)だと最初の要素以外のこと。</dd>
+          <div class="valueGet">
+            <ul class="hiteiSecond">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="hiteiSecondBtn">変更</button>
+          </div> 
+          <dd class="figure">$('li:not(#third,#fourth)');<br><span class="explain">li要素のid=third,fourth以外の要素を取得する</span></dd>
+          <dd>２つ目の例だと#third,#fourth以外の要素を選択する。</dd>
+        </dl>
+
+        <dl>
+          <dt>empty擬似クラス</dt>
+          <dd>子要素やテキストを含まない要素を選択する。</dd>
+          <dd class="figure">$('セレクター:empty');</dd>
+          <div class="valueGet">
+            <ul class="empty">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li></li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="emptyBtn">変更</button>
+          </div> 
+          <dd class="figure">$('li:empty');<br><span class="explain">li要素の空欄の要素を取得する</span></dd>
+          <dd>２番目のli要素が空なのでそこが選択される。</dd>
+        </dl>
+        
+        <dl>
+          <dt>nth-child擬似クラス</dt>
+          <dd>指定した要素のn番目を選択する。奇数ならnにoddを入れ、偶数ならeven,(2n)などとすると2の倍数を選択できる。</dd>
+            <dd class="figure">$('セレクター:nth-child(n)');<br><span class="explain">指定した要素のn番目の要素を取得する</span><br>
+            $('セレクター:nth-child(odd)');<br><span class="explain">指定した要素の奇数番目の要素を取得する</span></br>
+            $('セレクター:nth-child(even)');<br><span class="explain">指定した要素の偶数番目の要素を取得する</span></dd>
+            <div class="valueGet">
+              <ul class="nth">
+                <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+                <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              </ul>
+              <button id="nthBtn">変更</button>
+              <button id="nthOddBtn">奇数</button>
+              <button id="nthEvenBtn">偶数</button>
+              <button id="nthmultiBtn">4の倍数</button>
+              <button id="nthResetBtn">リセット</button>
+            </div> 
+            <dd class="figure">$('li:nth-child(3)').css('color','red');<br><span class="explain">li要素の3番目の要素を赤色にする</span></br>
+              $('li:nth-child(odd)').css('color','green');<br><span class="explain">li要素の奇数要素を緑色にする</span><br>
+              $('li:nth-child(even)').css('color','blue');<br><span class="explain">li要素の偶数要素を青色にする</span></br>
+              $('li:nth-child(4n)').css('color','yellowgreen');<br><span class="explain">li要素の4の倍数の要素を黄緑色にする</span></dd>
+        </dl>
+
+        <dl>
+        <dt>nth-last-child擬似クラス</dt>
+        <dd>要素の後ろから数えてn番目を選択する</dd>
+        <dd class="figure">$('セレクター:nth-last-child(n)');</dd>
+        <div class="valueGet">
+          <ul class="nth-last-child">
+            <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+          </ul>
+        <button id="nthLastBtn">変更</button>
+        </div> 
+        <dd class="figure">$('li:nth-last-child(3)');<br><span class="explain">li要素の最後から3番目の要素を取得する</span></dd>
+      </dl>
+
+      <dl>
+        <dt>nth-of-type擬似クラス</dt>
+        <dd>指定した要素のn番目を数えるのはnth-child擬似クラスと同じだが異なるのはnth-child擬似クラスが全ての兄弟要素を指定するのに対し、こちらは指定した子要素のみを数える。<br>
+          こちらもnに偶数ならeven,奇数ならoddを入れ、(2n)などとすると2の倍数を選択できる。</dd>
+          <dd>またfirst-of-type,last-of-typeもあり、こちらも最初(または最後)の子要素を数える</dd>
+          <dd class="figure">$('セレクター:nth-of-type(n)');<br><span class="explain">指定したセレクターのn番目の要素を取得する</span><br>
+          $('セレクター:first-of-type');<br><span class="explain">指定したセレクターの最初に登場する要素を取得する</span><br>
+          $('セレクター:last-of-type');<br><span class="explain">指定したセレクターの最後に登場する要素を取得する</span><br>
+          $('セレクター:nth-of-type(odd)');<br><span class="explain">指定したセレクターの奇数番目に登場する要素を取得する</span><br>
+          $('セレクター:nth-of-type(even)');<br><span class="explain">指定したセレクターの偶数番目に登場する要素を取得する</span></dd>
+          <div class="valueGet">
+            <dl class="nth-of-type">
+              <dt>&lt;dt>1.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dt></dt>
+                <dd>&lt;dd>2.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dd></dd>
+              <dt>&lt;dt>3.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dt></dt>
+                <dd>&lt;dd>4.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dd></dd>
+              <dt>&lt;dt>5.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dt></dt>
+                <dd>&lt;dd>6.テキストテキストテキストテキストテキストテキストテキストテキストテキスト&lt;/dd></dd>
+              </dl>
+          <button id="nthTypeBtn">変更</button>
+          <button id="nthTypeOddBtn">奇数</button>
+          <button id="nthTypeEvenBtn">偶数</button>
+          <button id="nthTypeEvenrisetBtn">リセット</button>
+          </div> 
+          <dd class="figure">$('dt:nth-of-type(2)').css('color','red');<br><span class="explain">dt要素の２番目に登場する要素を赤色にする</span><br>
+            $('dt:first-of-type').css('color','green');<br><span class="explain">dt要素の最初に登場する要素を緑色にする</span><br>
+            $('dt:last-of-type').css('color','blue');<br><span class="explain">dt要素の最初に登場する要素を青色にする</span><br>
+            $('dt:nth-of-type(odd)').css('color','orange');<br><span class="explain">dt要素の奇数番目に登場する要素をオレンジ色にする</span><br>
+            $('dt:nth-of-type(even)').css('color','yellowgreen');<br><span class="explain">dt要素の偶数番目に登場する要素を黄緑色にする</span></dd>
+        </dl>
+      </section>  
+
+      <section id="attrSelector">
+        <h2>属性セレクター</h2>
+        <dl>
+          <dt>要素の属性や属性値で指定することもできる。また属性セレクターは基本的に[ ]で囲う。</dt>
+          <dt>[属性値]</dt>
+          <dd>[ ]内の属性を選択できる。</dd>
+          <dd class="figure">$('[id]');</dd>
+          <div class="valueGet">
+            <ul class="attr">
+              <li class="first">class="first" テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">id="second" テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li class="third">class="third" テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">id="fourth" テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          <button id="attrBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id]').css('color','red');<br><span class="explain">id属性を持つ要素を赤色にする</span></dd>
+          <dd>この場合だとid属性を持つものを取得する。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値=" "]</dt>
+          <dd>特定の属性と特定の値が同じもの。</dd>
+          <dd class="figure">$('[id=" "]')</dd>
+          <div class="valueGet">
+            <ul class="same">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          <button id="sameBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id="second"]').css('color','red');<br><span class="explain">id属性がsecondの要素を赤色にする</span></dd>
+          <dd>idがsecondの要素を取得する。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値!=" "]</dt>
+          <dd>特定の属性と特定の値が異なるもの。</dd>
+          <dd class="figure">$('[id!="second"]')</dd>
+          <dd>
+            
+          </dd>
+          <div class="valueGet">
+            <ul class="difer">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          <button id="diferBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id!="second"]').css('color','red');<br><span class="explain">id属性がsecond以外要素を赤色にする</span></dd>
+          <dd>idがsecond以外の要素を取得する。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値^=" "]</dt>
+          <dd>特定の属性の値が特定の文字列で始まるもの。</dd>
+          <dd class="figure">$('[id^=" "]')</dd>
+          <div class="valueGet">
+            <ul class="start">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="startBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id^="f"]').css('color','red');<br><span class="explain">id属性が「f」から始まる要素を赤色にする</span></dd>
+          <dd>この例だとidが「f」から始まる「first」と「fourth」の要素が取得される。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値$=" "]</dt>
+          <dd>特定の属性の値が特定の文字列で終わるもの。</dd>
+          <dd class="figure">$('[id$="d"]');</dd>
+          <div class="valueGet">
+            <ul class="end">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="endBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id$="d"]').css('color','red');<br><span class="explain">id属性が「d」で終わる要素を赤色にする</span></dd>
+          <dd>この例だとidが「d」で終わる「second」と「third」の要素が取得される。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値*=" "]</dt>
+          <dd>特定の属性の値が特定の文字列を含むもの。</dd>
+          <dd class="figure">$('[id*="ir"]');</dd>
+          
+          <div class="valueGet">
+            <ul class="cont">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          <button id="contBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id*="ir"]').css('color','red');<br><span class="explain">id属性が「ir」を含む要素を赤色にする</span></dd>
+          <dd>この例だとidに「ir」の文字列が含まれている「first」と「third」の要素が取得される。</dd>
+        </dl>
+
+        <dl>
+          <dt>[属性値=" "][属性値=" "]</dt>
+          <dd>複数の属性セレクターを同時に指定できる。また間にスペースは空けない。</dd>
+          <dd class="figure">$('[id =" "][id =" "]')</dd>
+          <div class="valueGet">
+            <ul class="sametime">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <button id="sametimeBtn">変更</button>
+          </div> 
+          <dd class="figure">$('[id*="ir"][id$="t"]').css('color','red');<br><span class="explain">id属性が「ir」を含み、li要素のid属性が「t」で終わる要素を赤色にする</span></dd>
+          <dd>この場合だとidが「ir」を含み「t」で終わる「first」の要素が取得される。</dd>
+        </dl> 
+
+        <div class="zokusei">
+          <h3>まとめ</h3>
+          <ul>
+            <li> = 〜と等しい</li>
+            <li>!= 〜と等しくない</li>
+            <li>*=〜を含む</li>
+            <li>^=〜から始まる</li>
+            <li>$=〜で終わる</li>
+            <li>※複数指定する場合はスペースは空けない</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="uniqSelector">
+        <h2>jQueryの独自セレクター</h2>
+        <dl>
+          <p>jQueryにも独自のセレクターが存在し、またjQueryもJavaScriptと同じように0から1,2...とインデックス番号が振られている。</p>
+          <dt>eqセレクター/ltセレクター/gtセレクター</dt>
+          <dd>セレクターの中から特定の順番の要素をeq ( equal )セレクター、特定の要素より前の要素をlt ( less than )セレクター、後ろの要素をgt ( greater than )セレクターで選択できる。</dd>
+          <dd class="figure">$('セレクター:lt( )')<br>
+            $('セレクター:eq( )');<br>
+            $('セレクター:gt( )');</dd>
+            <div class="valueGet">
+              <ul class="eq">
+                <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト <span class="uniqSelector-span">0</span></li>
+                <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト <span class="uniqSelector-span">1</span></li>
+                <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト <span class="uniqSelector-span">2</span></li>
+                <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト <span class="uniqSelector-span">3</span></li>
+              </ul>
+              <span class="uniqSelector-span">※数字はインデックス番号</span><br>
+            <button id="ltBtn">lt</button>
+            <button id="eqBtn">eq</button>
+            <button id="gtBtn">gt</button>
+            <button id="resetBtn">リセット</button>
+            </div> 
+          <dd class="figure">$('li:lt(2)').css('color','blue');<br><span class="explain">li要素の２番目より前に登場する要素を青色にする</span><br>
+            $('li:eq(2)').css('color','red');<br><span class="explain">li要素の最初に登場する要素を赤色にする</span><br>
+            $('li:gt(2)').css('color','green');<br><span class="explain">li要素の２番目より後に登場する要素を緑色にする</span></dd>
+        </dl>
+
+        <dl>
+          <dt>evenセレクター/oddセレクター</dt>
+          <dd>セレクターの中の偶数の要素をevenセレクター、奇数の要素をoddセレクターで指定できる。</dd>
+          <dd>※JavaScriptではインデックス番号が0から始まることに注意。</dd>
+          <dd class="figure">$('セレクター:even');<br>
+            $('セレクター:odd');</dd>
+          <div class="valueGet">
+            <ul class="evenOdd">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト<span class="uniqSelector-span">0</span></li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト<span class="uniqSelector-span">1</span></li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト<span class="uniqSelector-span">2</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト<span class="uniqSelector-span">3</span></li>
+            </ul>
+            <span class="uniqSelector-span">※数字はインデックス番号</span><br>
+          <button id="unqueEvenBtn">even</button>
+          <button id="unqueOddBtn">odd</button>
+          </div> 
+          <dd class="figure">$('li:even').css('color','red');<br><span class="explain">li要素の中で偶数番目に登場する要素を赤色にする</span><br>
+            $('li:odd').css('color','green');<br><span class="explain">li要素の中で奇数番目に登場する要素を緑色にする</span></dd>
+        </dl>
+
+        <dl>
+          <dt>firstセレクター/lastセレクター</dt>
+          <dd>セレクターの中の最初の要素をfirstセレクター、最後の要素をlastセレクターで指定できる。</dd>
+          <dd class="figure">$('セレクター:first')<br>
+            $('セレクター:last')</dd>
+          <div class="valueGet">
+            <ul class="firstLast">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          </ul>
+          <button id="unqueFirstBtn">:first</button>
+          <button id="unqueLastBtn">:last</button>
+          </div>
+          <dd class="figure">$('li:first').css('color','red');<br><span class="explain">li要素の最初に登場する要素を赤色にする</span><br>
+            $('li:last').css('color','green');<br><span class="explain">li要素の最後に登場する要素を赤色にする</span></dd>
+        </dl>
+      
+        <div class="attention">
+          <h3>参考 first-child ( last-child )</h3>
+          <dd>
+            <ul class="first-child">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+            <ul class="first-child">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+            </ul>
+          </dd>
+          <p>※first(last)セレクターはその要素内の最初(最後)だけが範囲で、<br>
+          first-child(last-child)は同じ親要素を持つ要素にも範囲が及ぶ。</p>
+        </div>
+      
+        <dl>
+          <dt>containsセレクター/hasセレクター</dt>
+          <dd>containsセレクターは( )の中にある特定の文字列が含まれる要素を取得し、hasセレクターは( )の中にある特定の要素を取得する。</dd>
+          <dd class="figure">$('セレクター:contains("文字列")')<br>
+          $('セレクター:has("要素")')</dd>
+          <div class="valueGet">
+            <ul class="contains">
+              <li id="first">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="second">テキストテキストテキスト<strong>テキスト</strong>テキストテキストテキストテキストテキスト</li>
+              <li id="third">テキストテキストテキストテキストテキストテキストテキストテキストテキスト</li>
+              <li id="fourth">サンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプルサンプル</li>
+            </ul>
+          <button id="containsBtn">contains</button>
+          <button id="hasBtn">has</button>
+          </div> 
+          <dd class="figure">$('li:contains("サンプル")').css('color','red');<br><span class="explain">li要素の中で’サンプル’という文字列を含む要素を赤色にする</span><br>
+            $('li:has("strong")').css('color','blue');<br><span class="explain">li要素の中でstrongの要素を持つ要素を青色にする</span></dd>
+        </dl>
+      </section>
+    </div> 
+    </main>
+
+    <footer>
+      <a href="#top" id="top">topへ</a>
+      <div class="footer-wrapper">
+        <a href=""><i class="fab fa-twitter-square footer-icon"></i></a>
+        <a href=""><i class="fab fa-facebook-square footer-icon"></i></a>
+        <a href=""><i class="fab fa-line footer-icon"></i></a>
+        <p>&copy kbo 2020</p>
+      </div>
+
+     
+    </footer>
+  </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
