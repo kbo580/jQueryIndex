@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <title>jQuery備忘録</title>
+</head>
+<body>
+  <div class="flame-wrapper">
+  <header>
+    <h1>jQuery備忘録</h1>
+    <p>自分用の備忘録とまとめ</p>
+      <ul class="header-nav">
+        <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター編</a>
+          <ul id="serectorIndex" class="indexSub">
+            <li><a href="index.html#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
+            <li><a href="index.html#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
+            <li><a href="index.html#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
+          </ul>
+        </li>
+        <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド編</a>
+          <ul id="orderIndex" class="indexSub">
+            <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
+            <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
+            <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
+            <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
+            <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
+            <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
+            <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
+            <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
+          </ul>
+        </li>
+        <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント編</a>
+          <ul id="eventIndex" class="indexSub">
+            <li><a href="#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
+            <li><a href="#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
+            <li><a href="#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
+            <li><a href="#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
+            <li><a href="#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
+            <li><a href="#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
+            <li><a href="#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
+            <li><a href="#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
+            <li><a href="#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
+          </ul>
+        </li>
+        <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション編</a>
+          <ul id="animationIndex" class="indexSub">
+            <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
+            <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
+            <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
+            <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
+          </ul>
+        </li>
+        <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム編</a>
+          <ul id="formIndex" class="indexSub">
+            <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
+            <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
+            <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
+          </ul>
+        </li>
+      </ul>
+  </header>
+  <main class="event-wrapper">
+    <h1>イベント編</h1> 
+    <div class="inner">
+      <section class="eventIntro">
+        <dl>
+          <dt>イベントとは</dt>
+          <dd>HTMLやCSSを変化や変更させるための何らかのきっかけの事。</dd>
+          <dd class="figure">$('document').ready(function( ){<br>
+            &emsp;HTMLドキュメントが読み込まれたら処理をする<br>
+            });</dd>
+            <dd>今までやってきたjQueryも上記のイベント(ドキュメントを読み込んだら処理をしなさい)が前提となっている。 これを省略して書いたものが以下で</dd>
+            <dd class="figure">$(function( ){<br>
+              &emsp;HTMLドキュメントが読み込まれたら処理をする<br>
+               });</dd>
+              <dd>上記のように書き換えることができ、これを書かないとjQueryは正しく動かない。それはドキュメントのページを読み込み終えていないからで <div class="important">jQueryは最初に$(function)( ){ }を書き、{…}の内側に</div>スクリプトを書いていく。</dd>
+              <dt>イベントの書き方</dt>
+          <dd class="figure">$('セレクター') <div class="important">.イベント名</div>(function( ){<br>
+            &emsp;指定されたイベントが実行する処理<br>
+            });</dd>
+        </dl>
+      </section>
+
+      <section  id="clickEvent">
+        <h2>click( )</h2>
+        <dl>
+          <dt>clickイベント</dt>
+          <dd>クリックする事でイベントが発生する。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.click</div>(function( ){<br>
+            &emsp;クリックされた時に実行する処理<br>
+            });
+          </dd>
+          <dt>テキスト等を変更する場合</dt>
+          <dd id="click"><h3>&lt;h3>変更前&lt;/h3></h3></dd>
+          <dd id="click-btn" class="btn"><button>click!</button></dd>
+          <dd class="figure">$('#btn').click(function( ){<br>
+            <span class="explain">ボタンをクリックすることで</span><br>
+            &emsp;$('h3').text('変わりました！').css('color','red');<br>
+            <span class="explain">h3要素のテキストが変わり文字色が赤色になる</span><br>
+            });
+          </dd>
+          <dd></dd>
+          <dd>上の例の様に.(ドット)で複数の命令を繋いで処理を連続でする方法を<strong class="important">チェーンメソッド</strong>という。</dd>
+        </dl>
+
+        <dl>
+          <dt>画像を変える場合</dt>
+          <dd><img src="image/ぬこ１.jpg" alt="ぬこ１" class="cat-1"></dd>
+          <dd><button id="img-chang-btn">画像を変更</button></dd>
+          <dd class="figure">$('#btn').click(function( ){<br>
+            <span class="explain">ボタンをクリックすることで</span><br>
+          &emsp;$('img').attr('src','image/ぬこ２.jpg').attr('atr','ぬこ２');<br>
+          <span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+          });</dd>
+        </dl> 
+
+        <dl> 
+          <dt>a要素にclickイベントが設定されている場合</dt>
+          <dd><img src="image/ぬこ８.jpg" alt="ぬこ８"></dd>
+          <dd><a href="image/ぬこ８.jpg">画像を変更</a></dd>
+          <dd class="figure">$('a').click(function(){<br>
+            <span class="explain">ボタンをクリックすることで</span><br>
+            &emsp;$('img').attr('src','image/ぬこ９.jpg').attr('alt','ぬこ９');<br>
+            <span class="explain">imgのsrc属性とalt属性を変える</span><br>
+            });</dd>
+          <dd>しかし上の「画像を変更」をクリックすると写真のリンク先に飛んでしまう。</dd>
+          <dd>そうではなくてクリックで画像などを変えたい場合は<div class="important">return false;</div>を使う。</dd>
+          <dd><img src="image/ぬこ８.jpg" alt="ぬこ８" class="a-change"></dd>
+          <dd><a href="image/ぬこ８.jpg" class="a-click">画像を変更</a></dd>
+          <dd class="figure">$('a').click(function(){<br>
+            <span class="explain">ボタンをクリックすることで</span><br>
+            &emsp;$('img').attr('src','image/ぬこ９.jpg').attr('alt','ぬこ９');<br>
+            <span class="explain">imgのsrc属性とalt属性を変える</span><br>
+            &emsp;&emsp; return false;<br>
+            <span class="explain">return false;を返す</span><br>
+            });</dd>
+          <dd>return false;はこの場合a要素をクリックするとfalseを返すのでjQueryの命令だけが実行され、リンクへは移動しない。return falseを使えばその前でやりたい処理の命令を出すことができる。</dd> 
+          <div class="valueGet">
+            <dd><a href="https://google.com">googleへ</a><span>こちらはリンク先に飛ぶが</span> </dd>
+            <dd><a href="https://google.com" class="google-link">googleへ</a><span>こちらはリンク先に飛ばずにアラートが出ます</span></dd>
+          </div>
+          <dd class="figure">$('a').click(function(){<br>
+            <span class="explain">ボタンをクリックすることで</span><br>
+            &emsp;alert('移動しません');<br>
+            <span class="explain">アラートを出す</span><br>
+            &emsp;&emsp;return false;<br>
+            <span class="explain">return false;を返す</span><br>
+            });</dd>
+          <dd>それを応用するとクリックによってスライドを変えられるようなものができる。</dd>
+          <dd><img src="image/spring.jpg" alt="春" id="slide"></dd>
+          <dd>
+            <div class="slide-wrapper">
+              <ul class="slide-image">
+                <li><a href="image/spring.jpg">春</a></li>
+                <li><a href="image/ひまわり２.jpg">夏</a></li>
+                <li><a href="image/autmn.jpg">秋</a></li>
+                <li><a href="image/winter.jpg">冬</a></li>
+              </ul>
+            </div>
+          </dd>
+            <dd class="figure">$('.slide-image>li>a:eq(n)').click(function(){<br>
+              <span class="explain">li要素の直下のa要素のn番目(左から0,1,2,3)のボタンをクリックすることで</span><br>
+              &emsp;$('#slide').attr('src',this).attr('alt',this);<br>
+              <span class="explain">押した番号のsrc属性とalt属性に変える</span><br>
+              &emsp;&emsp; return false;<br>
+              <span class="explain">return false;を返す</span><br>
+            });</dd>
+            <dd>それぞれクリックすると写真が変わる</dd> 
+            <div class="bgcChange">
+              <p>背景色が変わります</p>
+            </div>
+            <dd><button id="colorBtn">背景色が変わります</button></dd>
+            <dd>if文を使うとクリックの度にイベントを変えることもできる。</dd>
+            <dd class="figure"> $('#btn').click(function( ){<br>
+              <span class="explain">ボタンをクリックすることで</span><br>
+              &emsp;if($(this).text( )==('背景色が変わります')){<br>
+              <span class="explain">押したボタンのテキストが’背景色が変わります’なら</span><br>
+              &emsp;&emsp;$('.div').css('backgroundColor','skyblue');<br>
+              <span class="explain">divの背景を水色にする</span><br>
+              &emsp; &emsp;$('.div>p').text('変わりました！');<br>
+              <span class="explain">div直下のp要素のテキストを’変わりました’に変える</span><br>
+              &emsp;&emsp;$(this).text('押すと戻ります')<br>
+              <span class="explain">押したボタンのテキストを’押すと戻ります’に変える</span><br>
+              &emsp;}else{<br>
+              <span class="explain">それ以外なら</span><br>
+              &emsp;&emsp;$('.div').css('backgroundColor','#fff');<br>
+              <span class="explain">divの背景を白色にする</span><br>
+              &emsp;&emsp;$('.div>p').text('背景色が変わります');<br>
+              <span class="explain">div直下のp要素のテキストを'背景色が変わります'にする</span><br>
+              &emsp;&emsp;$(this).text('背景色が変わります')<br>
+              <span class="explain">押したボタンのテキストを'背景色が変わります'にする</span><br>
+              &emsp;&emsp;  }<br>
+              });</dd>   
+        </dl>
+      </section>
+
+      <section id="dblclickEvent">
+        <h2>dblclick( )</h2>
+        <dl>
+          <dt>dblclickイベント</dt>
+            <dd>ダブルクリックされた時にイベントが発生する。</dd>
+            <dd class="figure">$('セレクター')<div class="important">.dblclick</div>(function( ){<br>
+            &emsp;ダブルクリックされた時に実行する処理<br>
+            });</dd>
+            <dd><img src="image/ぬこ３.jpg" alt="" class="cat-3"></dd>
+
+            <dd><button id="img-chang-dblbtn">ダブルクリックで画像を変更</button></dd>
+            <dd class="figure">$('#btn').dblclick(function( ){<br><span class="explain">ボタンをダブルクリックすることで</span><br>
+            &emsp;$('img').attr('src','image/ぬこ４.jpg').attr('atr','ぬこ４');<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+            });</dd>
+            <dt>a要素にdblclickイベントを設定した場合</dt>
+            <dd><a href="https://www.google.com/" id="dblclickLink1">イベント</a></dd>
+            <dd class="figure">$('a').dblclick(function( ){<br>
+              <span class="explain">a要素のリンクをダブルクリックすることで</span><br>
+              &emsp;alert('飛びません');<br>
+              <span class="explain">アラートを出す</span><br>
+              return false;<br>
+              <span class="explain">return false;を返す</span><br>
+              });</dd>
+              <dd>clickイベントの様にreturn falseを返してもうまく作動しない。1回目のクリックでイベントを感知してリンクを実行してしまうからである。a要素にdblclickイベントを設定したい場合は<div class="important">メソッドチェーンを利用してdblclick( )にはダブルクリックした時に実行したいイベントを、click( )にreturn falseを設定する。</div></dd>
+            <dd><a href="https://www.google.com/" id="dblclickLink2">イベント</a></dd>
+            <dd class="figure">$('a').dblclick(function( ){<br><span class="explain">a要素のリンクをダブルクリックすることで</span><br>
+              &emsp;alert('飛びません');<br><span class="explain">アラートを出す</span><br>
+              &emsp; }).click(function( ){<br><span class="explain">clickイベントを設定する</span><br>
+              &emsp;return false;<br><span class="explain">return false;を返す</span><br>
+              });</dd>
+        </dl>
+       </section>
+
+       <section id="mousedownEvent">
+        <h2>mousedown( )/mouseup( )</h2>
+        <dl>
+          <dt>mousedown/mouseupイベント</dt>
+          <dd>mousedown( )とmouseup( )は特定の要素の上で何らかのボタンが押されたり離されたりした時に処理を実行するもの。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.mousedown</div>(function(){<br>
+          &emsp;マウスダウンされた時に実行する処理<br>
+          });<br>
+          $('セレクター')<div class="important">.mouseup</div>(function( ){<br>
+          &emsp;マウスアップされた時に実行する処理<br>
+          });</dd>
+          <dd><img src="image/ぬこ５.jpg" alt="ぬこ５" class="cat-5"></dd>
+          <dd><button id="mouseup-btn">マウスボタンを押したままだと画像が変更、離すと戻る</button></dd>
+          <dd class="figure">$('#btn').mousedown(function( ){<br><span class="explain">ボタンのところでマウスボタンを押すと</span><br>
+          &emsp;$('img').attr('src','image/ヒョウ１.jpg').attr('atr','ヒョウ１');<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+          });<br>
+          $('#btn').mouseup(function( ){<br><span class="explain">ボタンからマウスボタンを離すと</span><br>
+          &emsp;$('img').attr('src','image/ぬこ５.jpg').attr('atr','ぬこ５');;<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える(今回は元に戻る設定)</span><br>
+          });</dd>
+        </dl>
+       </section>  
+
+       <section id="mouseoverEvent">
+        <h2>mouseover( )/mouseout( )</h2>
+        <dl>
+          <dt>mouseover/mouseoutイベント</dt>
+          <dd>mouseover( )とmouseout( )は特定の要素の上でマウスが重なったり外れたりした時に処理を実行するもの。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.mouseover</div>(function( ){<br>
+          &emsp;マウスが重なった時に実行する処理<br>
+          });<br>
+          $('セレクター')<div class="important">.mouseout</div>(function( ){<br>
+          &emsp;マウスが外れた時に実行する処理<br>
+          });</dd>
+          <dd><img src="image/ぬこ６.jpg" alt="" class="cat-6"></dd>
+          <dd><button id="mouseover-btn">ここにマウスが乗ると画像が変わり、外れると戻る</button></dd>
+          <dd class="figure">$('#btn').mouseover(function( ){<br><span class="explain">ボタンにマウスカーソルなどが重なると</span><br>
+          &emsp;$('img').attr('src','image/ぬこ７.jpg').attr('atr','ぬこ７');<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+          });<br>
+          $('#btn').mouseout(function( ){<br><span class="explain">ボタンからマウスカーソルなどが外れると</span><br>
+          &emsp;$('img').attr('src','image/ぬこ６.jpg').attr('atr','ぬこ６');<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える(今回は元に戻る設定)</span><br>
+          });</dd>
+          <dt>バブリング</dt>
+          <dd>
+          <div class="box">
+           <div class="inBox">ここまでおいで</div>
+          </div>
+          <dd class="figure"> $('.box').mouseover(function( ){<br><span class="explain">白いboxにマウスカーソルなどが重なると</span><br>
+            &emsp;$(this).animate({fontSize:'24px'}, 500);<br>
+            <span class="explain">boxの中の文字サイズが大きくなる</span><br>
+          }).mouseout(function( ){<br>
+            <span class="explain">白いboxからマウスカーソルが外れると</span><br>
+            &emsp;$(this).animate({fontSize:'16px'}, 500);<br>
+            <span class="explain">boxの中の文字サイズが戻る</span><br>
+          });</dd>
+        </dd><br>
+        <dd class="figure"> 
+          &lt;div class="box">
+            &lt;div class="inBox">ここまでおいで&lt;/div>
+            &lt;/div>
+        </dd><br>
+        <dd>青いboxの中に入るとイベントを設定していないのに親要素のイベントが発生する。</dd>
+          <dd>mouseover( )/mouseout( )ではセレクターで指定した要素内に子要素が存在する場合、子要素にカーソルが移動した時も親要素のイベントが実行される。これを<div class="important">バブリング</div>という。</dd>
+        </dl>
+      </section>
+
+      <section id="hoverEvent">
+        <h2>hover( )</h2>
+          <dl>
+            <dt>hoverイベント</dt>
+            <dd>対象にカーソルが乗った時や降りた時に処理が実行される点ではmouseover( )/mouseout( )と似ているがhover( )の場合は指定された要素のみに影響を与える。</dd>
+            <dd>hoverイベントは乗った時と降りた時の処理を両方書く必要がある</dd>
+            <dd class="figure">$('セレクター')<div class="important">.hover</div>(function( ){<br>
+              &emsp;マウスが重なった時に実行する処理<br>
+              &emsp; },function( ){<br>
+              &emsp;マウスが外れた時に実行する処理<br>
+              });</dd>
+            <dd>
+              <div class="box2">
+                <div class="in2">ここまでおいで</div>
+              </div>
+            </dd>
+            <dd class="figure">$('.box2').hover(function( ){<br><span class="explain">白いboxにマウスカーソルなどが重なると</span><br>
+            &emsp; $('this').animate({fontSize:'24px'}, 500);<br><span class="explain">boxの中の文字サイズが大きくなる</span><br>
+            &emsp; },function( ){<br><span class="explain">白いboxからマウスカーソルが外れると</span><br>
+            &emsp; $('this').animate({fontSize:'16px'}, 500);<br><span class="explain">boxの中の文字サイズが戻る</span><br>
+            });</dd>
+            <dd><h3>特別な理由がなければhover( )を使う方が良い</h3></dd>
+          </dl>
+      </section>
+
+      <section id="mousemoveEvent">
+        <h2>mousemove( )</h2>
+        <dl>
+          <dt>mousemoveイベント</dt>
+          <dd>特定の要素上でカーソルが動いた場合に処理を実行する。主に座標情報を取得するのに使われる。</dd>
+          <dd>function( )を(e)にすることでイベント発生時にe.clientXでX軸の座標、e.clientYでY軸の座標を取得できる。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.mousemove</div>(function( ){<br>
+            &emsp;設定した要素上でマウスが動いている時に実行する処理<br>
+            });</dd>
+          <div class="mousemove-wrapper">この中でマウスを動かすと座標が取得できる</div>
+            <dd>box内でのX座標<input type="text" id="offsetX"></dd>
+            <dd>box内でのY座標<input type="text" id="offsetY"></dd>
+            <dd class="figure">$('.box').mousemove(function(e){<br><span class="explain">box内でマウスが動くと</span><br>
+              &emsp;$('#inputX').val(e.offsetX);<br><span class="explain">inputXにX軸の座標が書かれる</span><br>
+              &emsp; $('#inputY').val(e.offsetY);<br><span class="explain">inputYにY軸の座標が書かれる</span><br>
+            });</dd><br>
+            <dd>eの後ろのプロパティを変えることで取得できる座標が変わる。上の例だとoffsetを設定しているので指定した要素内の座標を取得し、clientにするとセレクターを基準に表示画面内の座標を取得できる。例はセレクターをHTMLとしているので画面の表示領域すべてを取得できる。</dd>
+            <dd>表示領域のX座標<input type="text" id="clientX"></dd>
+            <dd>表示領域のY座標<input type="text" id="clientY"></dd>
+            <dd class="figure">$('html').mousemove(function(e){<br><span class="explain">表示画面でマウスが動くと</span><br>
+              &emsp;$('#inputX').val(e.clientX);<br><span class="explain">inputXにX軸の座標が書かれる</span><br>
+              &emsp; $('#inputY').val(e.clientY);<br><span class="explain">inputYにY軸の座標が書かれる</span><br>
+            });</dd>
+        </dl>
+      </section>
+
+      <section id="oneEvent">
+        <h2>one( )</h2>
+        <dl>
+          <dt>oneイベント</dt>
+          <dd>指定したイベントを一回だけ実行する。.oneを書いた後に( )内にイベントの発生条件を書き,(カンマ)で区切ってfunction( )以降を書いていく。イベントの発生条件にはclick,dblclick,mousedownなどが入る</dd>
+          <dd class="figure">$('セレクター')<div class="important">.one('イベントの発生条件',</div>function(){<br>
+            &emsp;イベント発生時に実行する処理<br>
+          });</dd><br>
+          <dd>画像にカーソルが乗ると１回目は変わるが２回目は変わらない</dd> 
+          <dd><img src="image/ぬこ１１.jpg" alt="ぬこ１１" id="one-cat"></dd>  
+          <dd class="figure">$('#cat').one('mouseover',function( ){<br><span class="explain">画像にカーソルが乗ると</span><br>
+            &emsp;$(this).attr('src','image/ぬこ１２.jpg').attr('alt','ぬこ１２');<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+            &emsp;}).one('mouseout',function( ){<br><span class="explain">画像からカーソルが降りると</span><br>
+            &emsp;$(this).attr('src','image/ぬこ１１.jpg').attr('alt','ぬこ１１');<br><span class="explain">画像が戻る</span><br>
+          });</dd><br>
+          <dd>クリックイベントを一回押すと画像が変わるが二回目にクリックすると画像のリンク先に飛ぶ</dd>
+          <dd><a href="image/rain.jpg" id="one">one</a></dd>
+          <dd><img src="image/rain.jpg" alt="rain" id="one-change"></dd>
+          <dd class="figure">$('a').one('click',function(){<br><span class="explain">a要素をクリックすると</span><br>
+            &emsp;$('img').attr('src','image/rainbow.jpg')<br><span class="explain">img要素のsrc属性とalt属性をattr( )で変える</span><br>
+            &emsp; return false;<br><span class="explain">return false;を返す</span><br>
+          });</dd>
+        </dl>
+      </section>
+
+      <section id="onEvent">
+        <h2>on( )</h2>
+        <dl>
+          <dt>onイベント</dt>
+          <dd>これまでのイベントの異なる書き方。on( )を使っても結果は同じようになる。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.on('イベントの発生条件',</div>function( ){<br>
+            &emsp;イベント発生時に実行する処理<br>
+            &emsp;});</dd>
+          <dd><button id="on">push!</button></dd>
+          <dd class="figure">$('#push').click(function( ){<br><span class="explain">プッシュボタンを押すと</span><br>
+            &emsp;$(this).before('&lt;dd> id="new">NEW!!&lt;/dd>');<br><span class="explain">dd要素が作られ、ボタンの前に挿入される</span><br>
+               &emsp;}); 
+          </dd> 
+          <dd>動的に作った要素はドキュメントが読み込まれた時点では存在していないためこれらの要素に変化やイベントを与える事はできない。</dd>
+          <dd>onイベントの最大の特徴は動的に作った要素にもイベントや変化を与えられることである。</dd>
+          <dd class="figure">
+            &emsp;$('セレクター').on('イベント発生の条件','イベント発生の対象',function( ){<br>
+              &emsp; &emsp;イベント発生時に実行する処理<br>
+               &emsp;});  
+          </dd>
+          <dd><button id="on-2">push!</button></dd>
+          <dd>ボタンを押して動的に作った要素にマウスを載せるとcssが効いてクリックすると消える。</dd>
+          <dd class="figure">$('#push').click(function( ){<br><span class="explain">プッシュボタンを押すと</span><br>
+            &emsp;$(this).before('&lt;dd id="new-2">NEW!!&lt;/dd>');<br><span class="explain">dd要素が作られ、ボタンの前に挿入される</span><br>
+            &emsp;});</dd><br>
+          <dd>動的に作った要素にonイベントで操作する。</dd>
+          <dd class="figure">$('dd').on('mouseover', '#new-2',function( ){<br><span class="explain">dd要素の#new-2にカーソルが乗ると</span><br>
+            &emsp;$(this).css({'backgroundColor':'red',略})(<br><span class="explain">背景が赤くなったりして…</span><br>
+            &emsp;.click(function( ){<br><span class="explain">クリックすると</span><br>
+              &emsp; $(this).remove( );<br><span class="explain">それを消去できる</span><br>
+              &emsp; });<br>
+              &emsp;});</dd>
+        </dl>
+      </section>
+
+      <section id="offEvent">
+        <h2>off( )</h2>
+        <dl>
+          <dt>offイベント</dt>
+          <dd>設定されているイベントを取り消す。</dd>
+          <dd class="figure">$('セレクター')<div class="important">.off</div>('イベント発生の条件'));</dd>
+          <dd><a href="image/ぬこ１３.jpg" id="off">ぬこ</a></dd>
+          <dd><img src="image/ぬこ１３.jpg" alt="ぬこ１３" class="cat13"></dd>
+          <dd class="figure">$('a').click(function( ){<br><span class="explain">a要素を押すと</span><br>
+            &emsp;if($('img').attr('src')=='image/ぬこ１３.jpg'){<br><span class="explain">img画像が「ぬこ１３」ならば</span><br>
+            &emsp;&emsp;$('img').attr('src','image/ぬこ１.jpg');<br><span class="explain">画像を「ぬこ１」に変える</span><br>
+            &emsp;&emsp;return false;<br><span class="explain">return false;を返す</span><br>
+            &emsp;}else{<br><span class="explain">そうでなければ</span><br>
+            &emsp;&emsp;$('img').attr('src','image/ぬこ１３.jpg');<br><span class="explain">画像を「ぬこ１３」に変える</span><br>
+            &emsp;&emsp; return false;<br><span class="explain">return false;を返す</span><br>
+            &emsp;&emsp;}  <br>
+            });</dd><br>
+            <dd>通常だと画像が押す度に変わるが「イベント取り消し」ボタンを押してからa要素をクリックするとリンク先に移動する。</dd>
+          <dd id="off-btn" class="btn"><button>イベント取り消し</button></dd>
+          <dd class="figure">$('#off-btn').click(function(){<br><span class="explain">ボタンを押すと</span><br>
+            &emsp;$('#off').off('click');<br><span class="explain">a要素に設定されたイベント(画像が切り替わるやつ)をオフにする。</span><br>
+            });<br>
+        </dl>
+      </section>
+      
+    </div>
+    </main>
+
+
+  <footer>
+    <a href="#top" id="top">topへ</a>
+    <div class="footer-wrapper">
+      <a href=""><i class="fab fa-twitter-square footer-icon"></i></a>
+      <a href=""><i class="fab fa-facebook-square footer-icon"></i></a>
+      <a href=""><i class="fab fa-line footer-icon"></i></a>
+      <p>&copy kbo 2020</p>
+    </div>
+  </footer>
+</div>
+ <script src="js/main.js"></script>
+</body>
+</html>
