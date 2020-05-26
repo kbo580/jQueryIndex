@@ -1,4 +1,4 @@
-/* ////////////////共通設定ここから////////////// */
+/* ////////////////////////////////共通設定//////////////////////////////// */
 body{
   width: 100%;
   background-image: url(../image/4061789479-backdrop-72250-jRgY-320x213-MM-100.jpg);
@@ -50,13 +50,17 @@ dt{
   margin-bottom: 6px;
 }
 
+dd{
+  margin-right: 40px;
+}
+
+
 .figure{
   background-color: #ddd;
   display: inline-block;
-  padding: 12px 14px;
+  padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  width: auto;
 }
 
 .important{
@@ -64,9 +68,16 @@ dt{
   display: inline;
 }
 
-/* ////////////////共通設定ここまで////////////// */
+.example{
+  background-color: #fff;
+  /* display: inline-block; */
+  width: 50%;
+  margin: 10px 40px 10px 40px;
+  padding: 20px 0 ;
+}
 
-/* ////////////////ヘッダーここから////////////// */
+
+/* ////////////////////////////////ヘッダー////////////////////////////// */
 header{
   width: 100%;
   background-color:#0769ad;
@@ -143,11 +154,13 @@ header .fas{
 
 
 
-/* ////////////////ヘッダーここまで////////////// */
 
-/* ////////////////メインここから////////////// */
+
+/* ////////////////////////////////メイン////////////////////////////// */
 main{
   margin: 0 auto;
+  padding: 0 10px;
+  word-wrap: break-word;
 }
 main h1{
   text-align: center;
@@ -165,9 +178,9 @@ main h2{
   color: #fff;
   margin-bottom: 10px;
 } 
-/* ////////////////メインここまで////////////// */
 
-/* ////////////////フッターここから////////////// */
+
+/* ////////////////////////////////フッター////////////////////////////// */
 
 footer{
   /* background-color: #0769ad; */
@@ -210,15 +223,23 @@ footer .fab{
   color: #1dcd00;
 }
 
-/* ////////////////フッターここまで////////////// */
 
-/* ////////////////セレクターここから////////////// */
-.index-wrapper .valueGet{
-  width: 80%;
+/* ////////////////////////////////セレクター////////////////////////////// */
+
+.index-wrapper li{
+  list-style: disc;
 }
 
 .selectorIntro span{
 color: red;
+}
+
+.index-wrapper .example{
+  background-color: #fff;
+  /* display: inline-block; */
+  width: 80%;
+  margin: 10px 40px 10px 40px;
+  padding: 20px 0 20px 20px;
 }
 
 .kihon{
@@ -235,6 +256,10 @@ color: red;
   margin: 0 40px 20px;
   text-align: center;
   padding: 20px 0;
+}
+
+.kihon li,.zokusei li{
+  list-style: none;
 }
 
 .zokusei h3,.attention h3{
@@ -279,10 +304,6 @@ margin-top:0;
 margin-bottom:0;
 }
 
-.nth-of-type dd{
-  padding-left: 40px;
-}
-
 .empty,.first-child{
   margin-left: 20px;
 }
@@ -301,13 +322,9 @@ color:green;
 }
 
 
-/* ////////////////セレクターここまで////////////// */
 
-/* ////////////////メソッドここから////////////// */
+/* ////////////////////////////////メソッド////////////////////////////// */
 
-
-
-/* ////////////////メソッドここまで////////////// */
 
 .attrClass{
   background-color: yellow;
@@ -347,7 +364,7 @@ opacity: 0.8;
   color: red;
 }
 
-/* ////////////////イベントここから////////////// */
+/* ////////////////////////////////イベント////////////////////////////// */
 
 
 .event-wrapper button{
@@ -373,10 +390,12 @@ color: green;
   width: 400px;
   vertical-align: bottom;
   margin-bottom: 10px;
+  max-width: 100%
 }
 
 .slide-wrapper{
   width: 400px;
+  max-width:100%
 }
 
 .slide-wrapper li{
@@ -406,35 +425,33 @@ color: green;
 
 
 
-
-
-
-/* ////////////////イベントここまで////////////// */
-
 .box{
   width: 200px;
   height: 200px;
   background-color: #fff;
   padding: 50px;
+  max-width:100%
 }
 .inBox{
   color:red;
   background-color: blue;
   text-align: center;
   line-height: 200px;
- 
+  max-width:100%
 } 
 .box2{
   width: 200px;
   height: 200px;
   background-color: #fff;
   padding: 50px;
+  max-width:100%
 }
 .in2{
   color:red;
   background-color: blue;
   text-align: center;
   line-height: 200px;
+  max-width:100%
  
 } 
 .slide-image{
@@ -458,7 +475,7 @@ input{
   width: 50px;
 }
 
-/* ////////////////アニメーションここから////////////// */
+/* ////////////////////////////////アニメーション////////////////////////////// */
 
 #animation .box{
   width: 100px;
@@ -516,13 +533,6 @@ input{
   display: inline-block;
 }
 
-.valueGet{
-  background-color: #fff;
-  /* height: 60px; */
-  width: 60%;
-  margin: 10px 0 10px 40px;
-  padding: 20px 0;
-}
 
 .valueGet dd{
   margin-left: 0;
