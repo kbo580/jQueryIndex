@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -11,60 +12,60 @@
 </head>
 <body>
   <div class="flame-wrapper">
-  <header>
-    <h1>jQuery備忘録</h1>
-    <p>自分用の備忘録とまとめ</p>
-      <ul class="header-nav">
-        <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター編</a>
-          <ul id="serectorIndex" class="indexSub">
-            <li><a href="index.html#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
-            <li><a href="index.html#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
-            <li><a href="index.html#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
-          </ul>
-        </li>
-        <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド編</a>
-          <ul id="orderIndex" class="indexSub">
-            <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
-            <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
-            <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
-            <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
-            <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
-            <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
-            <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
-            <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
-            <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
-          </ul>
-        </li>
-        <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント編</a>
-          <ul id="eventIndex" class="indexSub">
-            <li><a href="#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
-            <li><a href="#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
-            <li><a href="#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
-            <li><a href="#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
-            <li><a href="#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
-            <li><a href="#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
-            <li><a href="#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
-            <li><a href="#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
-            <li><a href="#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
-          </ul>
-        </li>
-        <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション編</a>
-          <ul id="animationIndex" class="indexSub">
-            <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
-            <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
-            <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
-            <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
-          </ul>
-        </li>
-        <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム編</a>
-          <ul id="formIndex" class="indexSub">
-            <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
-            <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
-            <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
-          </ul>
-        </li>
-      </ul>
-  </header>
+    <header>
+      <h1>jQuery備忘録</h1>
+      <p>自分用の備忘録とまとめ</p>
+        <ul class="header-nav">
+          <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター</a>
+            <ul id="serectorIndex" class="indexSub">
+              <li><a href="#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
+              <li><a href="#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
+              <li><a href="#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
+            </ul>
+          </li>
+          <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド</a>
+            <ul id="orderIndex" class="indexSub">
+              <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
+              <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
+              <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
+              <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
+              <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
+              <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
+              <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
+              <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
+              <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
+            </ul>
+          </li>
+          <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント</a>
+            <ul id="eventIndex" class="indexSub">
+              <li><a href="event.html#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
+              <li><a href="event.html#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
+              <li><a href="event.html#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
+              <li><a href="event.html#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
+              <li><a href="event.html#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
+              <li><a href="event.html#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
+              <li><a href="event.html#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
+              <li><a href="event.html#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
+              <li><a href="event.html#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
+            </ul>
+          </li>
+          <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション</a>
+            <ul id="animationIndex" class="indexSub">
+              <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
+              <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
+              <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
+              <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
+            </ul>
+          </li>
+          <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム</a>
+            <ul id="formIndex" class="indexSub">
+              <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
+              <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
+              <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
+            </ul>
+          </li>
+        </ul>
+    </header>
   <main class="event-wrapper">
     <h1>イベント編</h1> 
     <div class="inner">
@@ -141,9 +142,9 @@
             <span class="explain">return false;を返す</span><br>
             });</dd>
           <dd>return false;はこの場合a要素をクリックするとfalseを返すのでjQueryの命令だけが実行され、リンクへは移動しない。return falseを使えばその前でやりたい処理の命令を出すことができる。</dd> 
-          <div class="valueGet">
-            <dd><a href="https://google.com">googleへ</a><span>こちらはリンク先に飛ぶが</span> </dd>
-            <dd><a href="https://google.com" class="google-link">googleへ</a><span>こちらはリンク先に飛ばずにアラートが出ます</span></dd>
+          <div class="example">
+            <a href="https://google.com">googleへ</a><span>こちらはリンク先に飛ぶが</span><br>
+            <a href="https://google.com" class="google-link">googleへ</a><span>こちらはリンク先に飛ばずにアラートが出ます</span>
           </div>
           <dd class="figure">$('a').click(function(){<br>
             <span class="explain">ボタンをクリックすることで</span><br>
