@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -11,60 +12,60 @@
 </head>
 <body>
   <div class="flame-wrapper">
-  <header>
-    <h1>jQuery備忘録</h1>
-    <p>自分用の備忘録とまとめ</p>
-      <ul class="header-nav">
-        <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター編</a>
-          <ul id="serectorIndex" class="indexSub">
-            <li><a href="index.html#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
-            <li><a href="index.html#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
-            <li><a href="index.html#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
-          </ul>
-        </li>
-        <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド編</a>
-          <ul id="orderIndex" class="indexSub">
-            <li><a href="#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
-            <li><a href="#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
-            <li><a href="#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
-            <li><a href="#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
-            <li><a href="#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
-            <li><a href="#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
-            <li><a href="#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
-            <li><a href="#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
-            <li><a href="#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
-          </ul>
-        </li>
-        <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント編</a>
-          <ul id="eventIndex" class="indexSub">
-            <li><a href="event.html#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
-            <li><a href="event.html#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
-            <li><a href="event.html#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
-            <li><a href="event.html#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
-            <li><a href="event.html#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
-            <li><a href="event.html#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
-            <li><a href="event.html#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
-            <li><a href="event.html#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
-            <li><a href="event.html#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
-          </ul>
-        </li>
-        <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション編</a>
-          <ul id="animationIndex" class="indexSub">
-            <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
-            <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
-            <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
-            <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
-          </ul>
-        </li>
-        <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム編</a>
-          <ul id="formIndex" class="indexSub">
-            <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
-            <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
-            <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
-          </ul>
-        </li>
-      </ul>
-  </header>
+    <header>
+      <h1>jQuery備忘録</h1>
+      <p>自分用の備忘録とまとめ</p>
+        <ul class="header-nav">
+          <li><a href="index.html"><i class="fas fa-sort-down"></i>セレクター</a>
+            <ul id="serectorIndex" class="indexSub">
+              <li><a href="#cssSelector"><i class="fas fa-angle-right"></i>CSSセレクター</a></li>
+              <li><a href="#attrSelector"><i class="fas fa-angle-right"></i>属性セレクター</a></li>
+              <li><a href="#uniqSelector"><i class="fas fa-angle-right"></i>jQueryの独自セレクター</a></li>
+            </ul>
+          </li>
+          <li><a href="order.html"><i class="fas fa-sort-down"></i>メソッド</a>
+            <ul id="orderIndex" class="indexSub">
+              <li><a href="order.html#textOrder"><i class="fas fa-angle-right"></i>テキストの変更と取得</a></li>
+              <li><a href="order.html#htmlOrder"><i class="fas fa-angle-right"></i>HTMLの変更と取得</a></li>
+              <li><a href="order.html#htmlOrder2"><i class="fas fa-angle-right"></i>HTMLの挿入と移動</a></li>
+              <li><a href="order.html#wrapOrder"><i class="fas fa-angle-right"></i>wrap</a></li>
+              <li><a href="order.html#attributeOrder"><i class="fas fa-angle-right"></i>属性値</a></li>
+              <li><a href="order.html#classOrder"><i class="fas fa-angle-right"></i>class属性</a></li>
+              <li><a href="order.html#cssOrder"><i class="fas fa-angle-right"></i>cssプロパティ</a></li>
+              <li><a href="order.html#selectOrder"><i class="fas fa-angle-right"></i>要素の選択</a></li>
+              <li><a href="order.html#otherOrder"><i class="fas fa-angle-right"></i>その他のメソッド</a></li>
+            </ul>
+          </li>
+          <li><a href="event.html"><i class="fas fa-sort-down"></i>イベント</a>
+            <ul id="eventIndex" class="indexSub">
+              <li><a href="event.html#clickEvent"><i class="fas fa-angle-right"></i>click( )</a></li>
+              <li><a href="event.html#dblclickEvent"><i class="fas fa-angle-right"></i>dblclick( )</a></li>
+              <li><a href="event.html#mousedownEvent"><i class="fas fa-angle-right"></i>mousedown( )/mouseup( )</a></li>
+              <li><a href="event.html#mouseoverEvent"><i class="fas fa-angle-right"></i>mouseover( )/mouseout( )</a></li>
+              <li><a href="event.html#hoverEvent"><i class="fas fa-angle-right"></i>hover( )</a></li>
+              <li><a href="event.html#mousemoveEvent"><i class="fas fa-angle-right"></i>mousemove( )</a></li>
+              <li><a href="event.html#oneEvent"><i class="fas fa-angle-right"></i>one( )</a></li>
+              <li><a href="event.html#onEvent"><i class="fas fa-angle-right"></i>on( )</a></li>
+              <li><a href="event.html#offEvent"><i class="fas fa-angle-right"></i>off( )</a></li>
+            </ul>
+          </li>
+          <li><a href="animation.html"><i class="fas fa-sort-down"></i>アニメーション</a>
+            <ul id="animationIndex" class="indexSub">
+              <li><a href="animation.html#showAnimation"><i class="fas fa-angle-right"></i>show( )/hide( )</a></li>
+              <li><a href="animation.html#slideAnimation"><i class="fas fa-angle-right"></i>slideDown( )/slideUp( )</a></li>
+              <li><a href="animation.html#fadeAnimation"><i class="fas fa-angle-right"></i>fadeIn( )/fadeOut( )</a></li>
+              <li><a href="animation.html#animateAnimation"><i class="fas fa-angle-right"></i>animate( )</a></li>
+            </ul>
+          </li>
+          <li><a href="form.html"><i class="fas fa-sort-down"></i>フォーム</a>
+            <ul id="formIndex" class="indexSub">
+              <li><a href="form.html#getForm"><i class="fas fa-angle-right"></i>フォーム部品の値の取得・変更</a></li>
+              <li><a href="form.html#eventForm"><i class="fas fa-angle-right"></i>フォームに関するイベント</a></li>
+              <li><a href="form.html#selectForm"><i class="fas fa-angle-right"></i>フォーム部品を選択するセレクター</a></li>
+            </ul>
+          </li>
+        </ul>
+    </header>
 
   <main>
     <h1>メソッド編</h1> 
@@ -83,8 +84,11 @@
         <dl>
           <dt>テキストの変更</dt>
           <dd>.text( )を使うことでテキストの変更ができる。テキストは” ”(ダブルクォーテーション)または' '(シングルクォーテーション)で囲う。</dd>
-          <dd class="figure">$('セレクター').text(" ");</dd>
-          <div class="valueGet"><dd><span id="changeText">&lt;h1>変更前&lt;/h1></span></dd><button id="changeTextBtn">変更</button></div>
+          <dd class="figure">$('セレクター').text(" ");</dd><br>
+          <div class="example">
+            <span id="changeText">&lt;h3>変更前&lt;/h3></span><br>
+            <button id="changeTextBtn">変更</button>
+          </div><br>
           <dd class="figure">$('h1').text('changed!');<br>
             <span class="explain">h1要素のtextを'change!'に書き変える</span></dd>
         </dl>
@@ -93,7 +97,11 @@
           <dt>テキストの取得</dt>
           <dd>( )内を空欄にして取得する。また取得した文字列をそのまま入れることもできる。</dd>
           <dd class="figure">$('セレクター').text( );</dd>
-          <div class="valueGet"><dd>&lt;h3><span id="getText">取得されるもの</span>&lt;/h3><dd><button id="getTextBtn">取得して変更</button></dd><dd id="getTextP">&lt;p>変更前&lt;/p></dd></div>
+          <div class="example">
+            &lt;h3><span id="getText">取得されるもの</span>&lt;/h3><br>
+            <button id="getTextBtn">取得して変更</button>
+            <p id="getTextP">&lt;p>変更前&lt;/p></p>
+          </div>
           <dd class="figure">$('p').text($('h3').text( ));<br>
             <span class="explain">p要素にh3のテキストを取得して入れる</span></dd>
         </dl>
@@ -105,7 +113,10 @@
           <dt>HTMLの変更</dt>
           <dd>( )内に変更したいHTMLを入力する。textと同じ様に” ”(ダブルクォーテーション)または' '(シングルクォーテーション)で囲う。</dd>
           <dd class="figure">$('セレクター').html(" ");</dd>
-          <div class="valueGet"><dd  id="changeHtml">&lt;p>変更前&lt;/p></dd><dd><button id="changeHtmlBtn">変更</button></dd></div>
+          <div class="example">
+            <p id="changeHtml">&lt;p>変更前&lt;/p></p>
+              <button id="changeHtmlBtn">変更</button></dd>
+          </div>
           <dd class="figure">$('p').html("&lt;strong変更後&lt;/strong">);<br>
             <span class="explain">p要素を&lt;strong>変更後&lt;/strong>に変える</span></dd>
         </dl>
@@ -114,7 +125,11 @@
           <dt>HTMLの取得</dt> 
           <dd>( )内を空欄にして取得する。こちらも取得したhtmlをそのまま入れることができる。</dd>
           <dd class="figure">$('セレクター').html( );</dd>
-          <div class="valueGet"><dd  id="getHtml"><strong>変更前</strong></dd><button id="getHtmlBtn">変更</button><dd id="getHtmlP">&lt;p>変更前&lt;/p></dd></div>
+          <div class="example">
+            <strong  id="getHtml">変更前</strong><br>
+            <button id="getHtmlBtn">変更</button><br>
+            <span id="getHtmlP">&lt;p>変更前&lt;/p></dd>
+          </div>
           <dd class="figure">$('p').html($('#getHtml').html());<br>
               <span class="explain">id="getHtml"の値を取得してp要素に書き出す</span></dd>
         </dl>
@@ -136,15 +151,13 @@
                 <span class="explain">指定した要素の後ろに挿入する</span>
               </ul>
             </dd>
-          <div class="valueGet">
-            <dd>
+          <div class="example">
               <ul id="insert">
                 <li>list0</li>
                 <li>list1</li>
                 <li>list2</li>
                 <li>list3</li>
               </ul>
-            </dd>
             <button id="prependBtn">prepend</button><button id="appendBtn">append</button><button id="beforeBtn">before</button><button id="afterBtn">after</button>
           </div>
           <dd class="figure">$('ul>li:eq(0)').prepend('&lt;strong>prepend&lt;/strong>');<br>
@@ -175,15 +188,13 @@
               <span class="explain">指定した要素の後ろに挿入する</span>
             </ul>
           </dd>
-          <div class="valueGet">
-            <dd>
+          <div class="example">
               <ul id="insert2">
                 <li>list0</li>
                 <li>list1</li>
                 <li>list2</li>
                 <li>list3</li>
               </ul>
-            </dd>
             <button id="prependToBtn">prependTo</button><button id="appendToBtn">appendTo</button><button id="insertBeforeBtn">insertBefore</button><button id="insertAfterBtn">insertAfter</button><br>
             <strong id="prependTo">prependTo</strong>
             <strong id="appendTo">appendTo</strong>
@@ -212,7 +223,7 @@
           <dd>指定した要素を特定の要素で包む。包みたいタグを<要素名>空欄&lt;/要素名>で記述し、wrapは個別にwrapAllはまとめて包む。要は親要素を作る。</dd>
           <dd class="figure">$('セレクター').wrap('<要素名>&lt;/要素名>');<br>
           $('セレクター').wrapAll('<要素名>&lt;/要素名>');</dd>
-          <div class="valueGet">
+          <div class="example">
             <div class="wrap-wraper"> 
               <p>&lt;p>おはよう&lt;/p></p>
               <p>&lt;p>おはよう&lt;/p></p>
@@ -236,7 +247,7 @@
           <dt>unwrap( )</dt>
           <dd>セレクターを指定した要素の親要素を取り除く。( )内は空欄で。</dd>
           <dd class="figure">$('セレクター').unwrap( );</dd>
-          <div class="valueGet">
+          <div class="example">
             <div class="unwrap-wraper"> 
               <p>&lt;p>おはよう&lt;/p></p>
               <p>&lt;p>おはよう&lt;/p></p>
@@ -256,8 +267,8 @@
           <dd>属性値を変更できる</dd>
           <dd class="figure">$('セレクター').attr('属性名','属性値');<br>
             <span class="explain">セレクターの属性名を指定し値を変更する</span></dd>
-          <div class="valueGet">
-            <dd><a href="http://google.jp" id="changeAttr">googleへ</a></dd>
+          <div class="example">
+            <a href="http://google.jp" id="changeAttr">googleへ</a><br>
             <button id="changeAttrBtn">変更</button>
           </div>
           <dd class="figure">$('a').attr('href','https://www.yahoo.co.jp/');<br>
@@ -269,8 +280,8 @@
           <dd>セレクターを指定して取得する。また取得した値をそのまま入れることもできる</dd>
           <dd class="figure">$('セレクター').attr(" ");<br>
             <span class="explain">セレクターの属性を取得する</span></dd>
-          <div class="valueGet">
-            <dd><a href="http://google.jp" id="getAttr">googleへ</a></dd>
+          <div class="example">
+            <a href="http://google.jp" id="getAttr">googleへ</a><br>
             <button id="getAttrBtn">取得</button>
             <p id="getAttrInsert"></p>
           </div>
@@ -291,7 +302,10 @@
           <dt>class属性の削除</dt>
           <dd>removeClass( )を使う事でclassを削除できる。</dd>
           <dd class="figure">$('セレクター').removeClass('class名');</dd>
-          <div class="valueGet"><dd><p id="attrClass">&lt;p>こんにちは&lt;/p></span></p><button id="addClassBtn">クラスを追加</button><button id="removeClassBtn">クラスを削除</button></div>
+          <div class="example">
+            <p id="attrClass">&lt;p>こんにちは&lt;/p></span></p>
+            <button id="addClassBtn">クラスを追加</button><button id="removeClassBtn">クラスを削除</button>
+          </div>
           <dd class="figure">$('p').addClass('attrClass');<br>
             <span class="explain">p要素にクラスを追加</span><br>
             $('p').removeClass('attrClass');<br>
@@ -302,7 +316,10 @@
           <dt>hasClass( )</dt>
           <dd>( )内にそのクラスがあるか無いかを判定する。あればtrueを返し、無ければfalseを返す。</dd>
           <dd class="figure">$('セレクター').hasClass('class名');</dd>
-            <div class="valueGet"><p id="hasClass" class="judge">&lt;p>どっちでしょう&lt;/p></p><button id="hasClassBtn">ジャッジ</button></div> 
+            <div class="example">
+              <p id="hasClass" class="judge">&lt;p>どっちでしょう&lt;/p></p>
+              <button id="hasClassBtn">ジャッジ</button>
+            </div> 
           <dd class="figure">if($('p').hasClass('judge')){<br>
             <span class="explain">p要素が'judge'というclassを持っていれば</span><br>
             &emsp;&emsp;$('p').text('持ってます!');<br>
@@ -319,7 +336,10 @@
           <dt>toggleClass( )</dt>
           <dd>classの付け外しができる。</dd>
           <dd class="figure">$('セレクター').toggleClass('class名');</dd>
-          <div class="valueGet"><p id="toggleClass">&lt;p>クラスの付け外し&lt;/p></p><button id="toggleClassBtn">変える</button></div> 
+          <div class="example">
+            <p id="toggleClass">&lt;p>クラスの付け外し&lt;/p></p>
+            <button id="toggleClassBtn">変える</button>
+          </div> 
           <dd class="figure">$('p').toggleClass('toggle');<br>
             <span class="explain">p要素にtoggleclassを付け外しできる様にする</span></dd>
         </dl>
@@ -331,8 +351,9 @@
           <dt>CSSプロパティの設定</dt>
           <dd>css("プロパティ名","値")を使うとプロパティの値を変えたり取得できたりする。</dd>
           <dd class="figure">$('セレクター').css("プロパティ","値");</dd>
-          <div class="valueGet">
-            <dd><h3 id="changeCss">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd><button id="changeCssBtn">変更</button>
+          <div class="example">
+            <h3 id="changeCss">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3>
+            <button id="changeCssBtn">変更</button>
           </div>
           <dd class="figure">$('h3').css("color","red");<br>
             <span class="explain">h3要素のcss(文字色を赤に)を変更</span></dd>
@@ -342,15 +363,16 @@
           <dt>複数のプロパティを変える場合</dt>
           <dd>プロパティ名と値の間を : ( コロン )で区切り値を" "(ダブルクォーテーション)で囲い , ( カンマ )で繋げる。</dd>
           <dd class="figure">$('セレクター').css({<br>
-            &emsp;&emsp;&emsp;"プロパティ名" : "値",<br>
-            &emsp;&emsp;&emsp;"プロパティ名" : "値"<br>
+            &emsp;"プロパティ名" : "値",<br>
+            &emsp;"プロパティ名" : "値"<br>
           });</dd>
-          <div class="valueGet">
-            <dd><h3 id="changeCsss">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd><button id="changeCsssBtn">変更</button>
+          <div class="example">
+            <h3 id="changeCsss">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3>
+            <button id="changeCsssBtn">変更</button>
           </div>
           <dd class="figure">$('#change-css').css({<br>
-            &emsp;&emsp;&emsp;"color":"red",<br>
-            &emsp;&emsp;&emsp;"backgroundColor":"yellow",<br>
+            &emsp;&emsp;"color":"red",<br>
+            &emsp;&emsp;"backgroundColor":"yellow",<br>
             });<br>
             <span class="explain">h3要素のcss(文字色を赤、背景色を黄色に)を変更</span></dd>
         </dl>
@@ -359,8 +381,8 @@
           <dt>CSSプロパティの取得</dt>
           <dd>テキストやhtmlのようにcss("プロパティ名")とすると取得できる。</dd>
           <dd class="figure">$('セレクター').css("プロパティ名");</dd>
-          <div class="valueGet">
-            <dd><h3 id="getCssProp">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3></dd>
+          <div class="example">
+            <h3 id="getCssProp">&lt;h3>テキストテキストテキストテキストテキスト&lt;/h3></h3>
             <button id="getCssBtn">取得</button>
             <p id="getCssInsert"></p>
           </div>
@@ -376,7 +398,7 @@
             <dd>parent( )は指定した要素の親要素、children( )は指定した要素の子要素を指定する。</dd>
             <dd class="figure">$('セレクター').parent( );<br>
               $('セレクター').children( );</dd>
-            <div class="valueGet">
+            <div class="example">
               <div class="parent-wrapper">
                 <ul id="main"> &lt;ul id="main">
                   <li>&emsp;&lt;li>item0&lt;/li></li>
@@ -407,7 +429,7 @@
             <dd>next( )は指定した次の要素を、prev( )指定した前の要素を指定する。</dd>
             <dd class="figure">$('セレクター').next( );<br>
               $('セレクター').prev( );</dd>
-            <div class="valueGet">
+            <div class="example">
               <div class="next-wrapper">
                 <ul id="main"> &lt;ul id="main">
                   <li>&emsp;&lt;li>item0&lt;/li></li>
@@ -437,7 +459,7 @@
             <dt>siblings( )</dt>
             <dd>siblings( )は指定した物の兄弟要素を指定する。</dd>
             <dd class="figure">$('セレクター').siblings( );</dd>
-            <div class="valueGet">
+            <div class="example">
               <div class="siblings-wrapper">
                 <ul id="main"> &lt;ul id="main">
                   <li>&emsp;&lt;li>item0&lt;/li></li>
@@ -468,7 +490,7 @@
           <dt>index( )</dt>
           <dd>指定したindex番号を取得する。</dd>
           <dd class="figure">$('セレクター').index( );</dd>
-          <div class="valueGet">
+          <div class="example">
             クリックするとindex番号が取得できます
             <ul class="indexList">
               <li>item1</li>
@@ -483,7 +505,7 @@
             <span class="explain">変数indexNumにリストの中でクリックしたもののindex番号を取得して格納</span></br>
             $('p').text(`インデックス番号は${indexNum}です。`);<br>
               <span class="explain">p要素に変数indexNumで取得したものを表示</span></dd>
-          <div class="valueGet">
+          <div class="example">
             <ul class="indexList2">
               <li>&lt;li>item1&lt;/li></li>
               <li>&lt;li>item2&lt;/li></li>
@@ -506,7 +528,7 @@
           <dd>topからの距離を指定してそこへスクロールさせることができる。また( )内に数字を入れることで任意の場所へスクロールできる。</dd>
           <dd><span class="important">$('html,body')とセットで使う</span></dd>
           <dd class="figure">$('html,body').scrollTop( );</dd>
-          <div class="valueGet">
+          <div class="example">
             <button id="topBtn">topへ</button>
           </div>
           <dd class="figure">$('html,body').scrollTop(0);<br>
@@ -519,7 +541,7 @@
            $('セレクター').offset( )<span class="important">.top</span>;</dd>
           <dd>要素の表示位置を取得できる。また後ろに.topとすることでtopからの位置を取得できる。</dd>
          
-          <div class="valueGet">
+          <div class="example">
             <h3 id="offsetP">&lt;h3>こんばんは&lt;/h3></h3>
             <button id="offsetBtn">位置を取得する</button>
             <p id="offsetText"></p>
